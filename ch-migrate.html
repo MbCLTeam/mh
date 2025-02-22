@@ -1,0 +1,80 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migrar Key | CoffeeHub</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 100%;
+            max-width: 400px;
+        }
+        h2 {
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            text-align: center;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Insira seu link de ativação</h2>
+        <input type="text" id="ativador" placeholder="Insira seu ativador">
+        <button onclick="migrar()">Migrar</button>
+    </div><script>
+    function migrar() {
+        let ativador = document.getElementById("ativador").value;
+        let regex = /^https:\/\/ativar\.moonhorizon\.xyz\/key\/.+/;
+
+        if (!regex.test(ativador)) {
+            alert("Link inválido, verifique antes de enviar");
+            return;
+        }
+
+        let novaURL = ativador.replace("ativar.moonhorizon.xyz", "ativar.gruponext.online");
+        window.location.href = novaURL;
+    }
+</script>
+
+</body>
+</html>
